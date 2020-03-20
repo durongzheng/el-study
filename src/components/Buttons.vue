@@ -102,7 +102,7 @@ export default {
   name: 'Buttons',
   data () {
     return {
-      msg: 'element-ui Study buttons'
+      msg: 'Element-UI Button组件'
     }
   }
 }
