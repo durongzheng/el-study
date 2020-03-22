@@ -1,61 +1,34 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>基础组件</h2>
-    <ul>
-      <li>
-        <a
-          href="./Buttons"
-          target="_blank"
-        >
-          Button组件
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <div style="margin-top: 20px">
+      <h2>基础组件</h2>
+      <ul>
+        <li>
+          <el-link @click="handleButtons">Button组件</el-link>
+        </li>
+        <li>
+          <el-link @click="handleTextLinks">文字链接</el-link>
+        </li>
+      </ul>
+    </div>
+    <div style="margin-top: 40px">
+      <h2>表单组件</h2>
+      <ul>
+        <li>
+          <el-link @click="handleRadios">单选框</el-link>
+        </li>
+        <li>
+          <el-link @click="handleCheckboxes">多选框</el-link>
+        </li>
+        <li>
+          <el-link @click="handleInputs">输入框</el-link>
+        </li>
+        <li>
+          <el-link @click="handleInputNumbers">计数器</el-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -65,6 +38,32 @@ export default {
   data () {
     return {
       msg: 'Element 组件学习'
+    }
+  },
+  methods: {
+    handleButtons () {
+      this.msg = 'Buttons'
+      this.$router.push('/Buttons')
+    },
+    handleTextLinks () {
+      this.msg = '文字链接'
+      this.$router.push('/TextLink')
+    },
+    handleRadios () {
+      this.msg = '单选框'
+      this.$router.push('/Radios')
+    },
+    handleCheckboxes () {
+      this.msg = '多选框'
+      this.$router.push('/Checkboxes')
+    },
+    handleInputs () {
+      this.msg = '输入框'
+      this.$router.push('/Inputs')
+    },
+    handleInputNumbers () {
+      this.msg = '计数器'
+      this.$router.push('/InputNumbers')
     }
   }
 }
@@ -80,10 +79,7 @@ ul {
   padding: 0;
 }
 li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+  float: left;
+  margin: 0 10px 0 10px;
 }
 </style>
