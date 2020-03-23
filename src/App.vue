@@ -137,13 +137,12 @@ export default {
   cursor: pointer;
 }
 .logo img{
-  display: inline;
   float: left;
   height: 32px;
 }
 .logo span{
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-  font-size: 20px;
-  font color: #000;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
 }
 </style>

@@ -27,6 +27,12 @@
         <li>
           <el-link @click="handleInputNumbers">计数器</el-link>
         </li>
+        <li>
+          <el-link @click="handleSelects">选择器</el-link>
+        </li>
+        <li>
+          <el-link @click="handleCascader">级联选择器</el-link>
+        </li>
       </ul>
     </div>
   </div>
@@ -64,6 +70,14 @@ export default {
     handleInputNumbers () {
       this.msg = '计数器'
       this.$router.push('/InputNumbers')
+    },
+    handleSelects () {
+      this.msg = '选择器'
+      this.$router.push('/Selects')
+    },
+    handleCascader () {
+      this.msg = '计数器'
+      this.$router.push('/Cascader')
     }
   }
 }
