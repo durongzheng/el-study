@@ -4,16 +4,19 @@
       <el-container id="app">
         <el-header>
           <el-row>
-            <el-col :span="8">
+            <el-col :span="6">
               <router-link to="/" tag="span">
                 <div class="logo">
-                  <img src="../static/img/buyerdao.png">
-                  <span>BuyerDAO</span>
+                  <img src="../static/img/easyman.png">
                 </div>
               </router-link>
             </el-col>
-            <el-col :span="16">
-              {{ msg }}
+            <el-col :span="18">
+              <ul>
+                <li class="navbar">基础组件</li><el-divider direction="vertical"></el-divider>
+                <li class="navbar">表单组件</li><el-divider direction="vertical"></el-divider>
+                <li class="navbar">html&css效果</li>
+              </ul>
             </el-col>
           </el-row>
         </el-header>
@@ -24,7 +27,7 @@
               @select="handleSelect"
               background-color="#545c64"
               text-color="#fff"
-              active-text-color="#ffd04b">
+              active-text-color="#ffd012">
               <el-submenu index="1">
                 <template slot="title">
                   <i class="el-icon-location"></i>
@@ -68,51 +71,39 @@
 export default {
   name: 'App',
   data () {
-    return {
-      msg: 'Buttons'
-    }
+    return { }
   },
   methods: {
     handleSelect (key, keyPath) {
       switch (key) {
         case '1-1':
-          this.msg = 'Buttons'
           this.$router.push('/Buttons')
           break
         case '1-2':
-          this.msg = '文字链接'
           this.$router.push('/TextLink')
           break
         case '2-1':
-          this.msg = '单选框'
           this.$router.push('/Radios')
           break
         case '2-2':
-          this.msg = '多选框'
           this.$router.push('/Checkboxes')
           break
         case '2-3':
-          this.msg = '输入框'
           this.$router.push('/Inputs')
           break
         case '2-4':
-          this.msg = '计数器'
           this.$router.push('/InputNumbers')
           break
         case '2-5':
-          this.msg = '选择器'
           this.$router.push('/Selects')
           break
         case '2-6':
-          this.msg = '级联选择器'
           this.$router.push('/Cascader')
           break
         case '3-1':
-          this.msg = '动画演示'
           this.$router.push('/Animations')
           break
         default:
-          this.msg = 'Element UI components'
           this.$router.push('/')
           break
       }
@@ -138,11 +129,14 @@ export default {
 }
 .logo img{
   float: left;
-  height: 32px;
+  height: 40px;
 }
 .logo span{
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   font-size: 24px;
   color: rgb(0, 0, 0);
+}
+li.navbar{
+  display: inline-block;
 }
 </style>

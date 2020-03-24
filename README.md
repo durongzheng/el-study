@@ -1,6 +1,6 @@
 # el-study
 
-> A Vue.js project
+> 熟悉element-ui组件的使用.
 
 ## Build Setup
 

@@ -1,7 +1,7 @@
 {
   "name": "el-study",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "element-ui组件",
   "author": "durongzheng <drz@easyman.com.cn>",
   "private": true,
   "scripts": {

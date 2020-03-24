@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <div style="margin-top: 20px">
-      <h2>基础组件</h2>
+      <h2><i class="el-icon-location"></i> 基础组件</h2>
       <ul>
         <li>
           <el-link @click="handleButtons">Button组件</el-link>
@@ -13,7 +13,7 @@
       </ul>
     </div>
     <div style="margin-top: 40px">
-      <h2>表单组件</h2>
+      <h2><i class="el-icon-upload"></i> 表单组件</h2>
       <ul>
         <li>
           <el-link @click="handleRadios">单选框</el-link>

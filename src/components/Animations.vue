@@ -42,6 +42,7 @@ export default {
     background: yellow;
     position: relative;
     animation: mymove 5s infinite;
+    animation-timing-function: ease;
 }
 .item2{
     width: 50px;
