@@ -112,6 +112,8 @@ export default {
 <style scoped>
 h1 {
   font-weight: normal;
+  font-size: 60px;
+  color: #ff007a;
 }
 .em-row {
   margin: 10px 10px 0px 0px;

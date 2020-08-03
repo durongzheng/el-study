@@ -13,6 +13,10 @@
             </el-col>
             <el-col :span="18">
               <ul>
+                <li class="navbar">
+                  <el-link :underline="false" @click="uniswapAccounts">Uniswap流动池</el-link>
+                </li>
+                <el-divider direction="vertical"></el-divider>
                 <li class="navbar">基础组件</li><el-divider direction="vertical"></el-divider>
                 <li class="navbar">表单组件</li><el-divider direction="vertical"></el-divider>
                 <li class="navbar">html&css效果</li>
@@ -36,6 +40,7 @@
                 <el-menu-item index="1-1">Button</el-menu-item>
                 <el-menu-item index="1-2">文字链接</el-menu-item>
               </el-submenu>
+
               <el-submenu index="2">
                 <template slot="title">
                   <i class="el-icon-upload"></i>
@@ -48,6 +53,7 @@
                 <el-menu-item index="2-5">选择器</el-menu-item>
                 <el-menu-item index="2-6">级联选择器</el-menu-item>
               </el-submenu>
+
               <el-submenu index="3">
                 <template slot="title">
                   <i class="el-icon-s-custom"></i>
@@ -55,6 +61,23 @@
                 </template>
                 <el-menu-item index="3-1">动画演示</el-menu-item>
               </el-submenu>
+
+              <el-submenu index="4">
+                <template slot="title">
+                  <i class="el-icon-pie-chart"></i>
+                  <span>e-charts组件</span>
+                </template>
+                <el-menu-item index="4-1">直方图</el-menu-item>
+              </el-submenu>
+
+              <el-submenu index="5">
+                <template slot="title">
+                  <i class="el-icon-pie-chart"></i>
+                  <span>Uniswap流动池分析</span>
+                </template>
+                <el-menu-item index="5-1">账户一览</el-menu-item>
+              </el-submenu>
+
             </el-menu>
           </el-aside>
           <el-main>
@@ -103,10 +126,19 @@ export default {
         case '3-1':
           this.$router.push('/Animations')
           break
+        case '4-1':
+          this.$router.push('/EchartsBar')
+          break
+        case '5-1':
+          this.$router.push('/UniswapAccounts')
+          break
         default:
           this.$router.push('/')
           break
       }
+    },
+    uniswapAccounts () {
+      this.$router.push('/UniswapAccounts')
     }
   }
 }
@@ -138,5 +170,8 @@ export default {
 }
 li.navbar{
   display: inline-block;
+}
+.el-menu{
+  text-align: left;
 }
 </style>

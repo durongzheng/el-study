@@ -4,6 +4,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// 引入echarts
+import echarts from 'echarts'
+// 引入axios
+import axios from 'axios'
+
 import App from './App'
 
 import Buttons from './components/Buttons'
@@ -16,6 +21,12 @@ import Inputs from './components/Inputs'
 import InputNumbers from './components/InputNumbers'
 import Selects from './components/Selects'
 import Cascader from './components/Cascader'
+import EchartsBar from './components/echarts-bar'
+import UniswapAccounts from './components/uniswap-accounts'
+
+Vue.prototype.$echarts = echarts
+// 使用时: 类似this.$axios.get(`url${params}`)
+Vue.prototype.$axios = axios
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -31,7 +42,9 @@ const routes = [
   { path: '/Inputs', component: Inputs },
   { path: '/InputNumbers', component: InputNumbers },
   { path: '/Selects', component: Selects },
-  { path: '/Cascader', component: Cascader }
+  { path: '/Cascader', component: Cascader },
+  { path: '/EchartsBar', component: EchartsBar },
+  { path: '/UniswapAccounts', component: UniswapAccounts }
 ]
 
 const router = new VueRouter({
