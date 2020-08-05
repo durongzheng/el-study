@@ -4,24 +4,33 @@
       <el-container id="app">
         <el-header>
           <el-row>
-            <el-col :span="6">
+            <el-col v-if="!mobile" :span="6">
               <router-link to="/" tag="span">
                 <div class="logo">
                   <img src="../static/img/easyman.png">
                 </div>
               </router-link>
             </el-col>
-            <el-col :span="18">
+            <el-col v-if="!mobile" :span="18">
               <ul>
                 <li class="navbar">
-                  <el-link :underline="false" @click="uniswapAccounts">Uniswap流动池</el-link>
+                  <el-link :underline="false" @click="uniswapAccounts">Uniswap</el-link>
+                  <el-divider direction="vertical"></el-divider>
+                  <el-link :underline="false" @click="home">Element</el-link>
+                  <el-divider direction="vertical"></el-divider>
+                  <el-checkbox v-model="mobile" @click="mobileMode">移动端</el-checkbox>
                 </li>
-                <el-divider direction="vertical"></el-divider>
+              </ul>
+            </el-col>
+            <el-col v-else :span="24">
+              <ul>
                 <li class="navbar">
-                  <el-link :underline="false" @click="home">Element组件</el-link>
+                  <el-link :underline="false" @click="uniswapAccounts">Uniswap</el-link>
+                  <el-divider direction="vertical"></el-divider>
+                  <el-link :underline="false" @click="home">Element</el-link>
+                  <el-divider direction="vertical"></el-divider>
+                  <el-checkbox v-model="mobile" @click="mobileMode">移动端</el-checkbox>
                 </li>
-                <el-divider direction="vertical"></el-divider>
-                <el-checkbox v-model="mobile" @click="mobileMode">移动端</el-checkbox>
               </ul>
             </el-col>
           </el-row>
