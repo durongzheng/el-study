@@ -17,15 +17,17 @@
                   <el-link :underline="false" @click="uniswapAccounts">Uniswap流动池</el-link>
                 </li>
                 <el-divider direction="vertical"></el-divider>
-                <li class="navbar">基础组件</li><el-divider direction="vertical"></el-divider>
-                <li class="navbar">表单组件</li><el-divider direction="vertical"></el-divider>
-                <li class="navbar">html&css效果</li>
+                <li class="navbar">
+                  <el-link :underline="false" @click="home">Element组件</el-link>
+                </li>
+                <el-divider direction="vertical"></el-divider>
+                <el-checkbox v-model="mobile" @click="mobileMode">移动端</el-checkbox>
               </ul>
             </el-col>
           </el-row>
         </el-header>
         <el-container>
-          <el-aside width="25%">
+          <el-aside width="25%" v-if="!mobile">
             <el-menu
               default-active="1"
               @select="handleSelect"
@@ -94,7 +96,9 @@
 export default {
   name: 'App',
   data () {
-    return { }
+    return {
+      mobile: false
+    }
   },
   methods: {
     handleSelect (key, keyPath) {
@@ -130,15 +134,21 @@ export default {
           this.$router.push('/EchartsBar')
           break
         case '5-1':
-          this.$router.push('/UniswapAccounts')
+          this.uniswapAccounts()
           break
         default:
-          this.$router.push('/')
+          this.home()
           break
       }
     },
     uniswapAccounts () {
       this.$router.push('/UniswapAccounts')
+    },
+    home () {
+      this.$router.push('/')
+    },
+    mobileMode () {
+      this.mobile = !this.mobile
     }
   }
 }

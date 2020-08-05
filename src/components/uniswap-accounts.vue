@@ -8,7 +8,10 @@
           <span>{{ account.address }}</span>
         </div>
         <div class="main-text item" v-if="'info' in account">
-          {{'人民币总值: ¥' + (parseFloat(account.info.value)*7).toLocaleString()}}
+          人民币总值:
+        </div>
+        <div class="main-text item" v-if="'info' in account">
+          {{'¥' + (parseFloat(account.info.value)*7).toLocaleString()}}
         </div>
         <div class="text item" v-if="'info' in account">
           {{'美元总值: $' + parseFloat(account.info.value).toLocaleString()}}
@@ -111,7 +114,7 @@ h1 {
   text-align: left;
 }
 .main-text {
-  font-size: 40px;
+  font-size: 28px;
   color: #ff007a;
 }
 
@@ -129,8 +132,8 @@ h1 {
 }
 
 .box-card {
-  width: 80%;
+  width: 90%;
   text-align: center;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 </style>
