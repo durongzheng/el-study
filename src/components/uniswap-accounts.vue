@@ -5,13 +5,10 @@
     <el-row v-for="account in accounts" :key="account.id" class="em-row">
       <el-card class="box-card">
         <div slot="header" class="clearfix card-header">
-          <span>{{ account.address }}</span>
+          <span>{{ account.address.substring(0,6) + ' ... ' + account.address.substring(36) }}</span>
         </div>
         <div class="main-text item" v-if="'info' in account">
-          人民币总值:
-        </div>
-        <div class="main-text item" v-if="'info' in account">
-          {{'¥' + (parseFloat(account.info.value)*7).toLocaleString()}}
+          {{'人民币总值: ¥' + (parseFloat(account.info.value)*7).toLocaleString()}}
         </div>
         <div class="text item" v-if="'info' in account">
           {{'美元总值: $' + parseFloat(account.info.value).toLocaleString()}}
@@ -110,11 +107,11 @@ h1 {
   text-align: left;
 }
 .text {
-  font-size: 16px;
+  font-size: 14px;
   text-align: left;
 }
 .main-text {
-  font-size: 28px;
+  font-size: 20px;
   color: #ff007a;
 }
 

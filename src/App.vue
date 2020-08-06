@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-col :span="18" :offset="3">
+    <el-col :span="24" :offset="0">
       <el-container id="app">
         <el-header>
           <el-row>
