@@ -20,7 +20,7 @@
           {{'美元投入: $' + parseFloat(account.info.investment).toLocaleString()}}
         </div>
         <div class="text item" v-if="'info' in account">
-          {{'收益率: ' + account.info.ratio +'%'}}
+          {{'收益率: ' + account.info.ratio}}
         </div>
       </el-card>
     </el-row>
