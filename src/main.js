@@ -23,6 +23,8 @@ import Selects from './components/Selects'
 import Cascader from './components/Cascader'
 import EchartsBar from './components/echarts-bar'
 import UniswapAccounts from './components/uniswap-accounts'
+import UniswapPair from './components/uniswap-pair'
+// import { component } from 'vue/types/umd'
 
 Vue.prototype.$echarts = echarts
 // 使用时: 类似this.$axios.get(`url${params}`)
@@ -44,7 +46,12 @@ const routes = [
   { path: '/Selects', component: Selects },
   { path: '/Cascader', component: Cascader },
   { path: '/EchartsBar', component: EchartsBar },
-  { path: '/UniswapAccounts', component: UniswapAccounts }
+  { path: '/UniswapAccounts', component: UniswapAccounts },
+  {
+    path: '/UniswapPair',
+    name: 'UniswapPair',
+    component: UniswapPair
+  }
 ]
 
 const router = new VueRouter({
