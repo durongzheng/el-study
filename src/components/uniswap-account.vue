@@ -17,6 +17,7 @@
         {{'收益率: ' + info.ratio}}
       </div>
       <div class="card-pair-item" v-if="'pairs' in info">
+        <el-divider direction="vertical"></el-divider>
         <span v-for="pair in info.pairs" :key="pair.pair_id" class="card-pair-text">
           <a @click="routeTo(pair)" class="card-pair-link">
             {{ pair.token0_symbol + '-' + pair.token1_symbol}}
