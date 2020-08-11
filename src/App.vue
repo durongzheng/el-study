@@ -7,7 +7,7 @@
             <el-col v-if="!mobile" :span="6">
               <router-link to="/" tag="span">
                 <div class="logo">
-                  <img src="../static/img/easyman.png">
+                  <img src="../static/img/my_son.jpg">
                 </div>
               </router-link>
             </el-col>
@@ -36,7 +36,7 @@
           </el-row>
         </el-header>
         <el-container>
-          <el-aside width="25%" v-if="!mobile">
+          <el-aside width="20%" v-if="!mobile">
             <el-menu
               default-active="1"
               @select="handleSelect"
@@ -180,7 +180,7 @@ export default {
 }
 .logo img{
   float: left;
-  height: 40px;
+  height: 35px;
 }
 .logo span{
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;

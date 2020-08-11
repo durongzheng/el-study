@@ -13,10 +13,10 @@
           </span>
         </div>
         <div class="card-main-text" v-if="'value' in pair">
-          {{'人民币总值: ¥' + (parseFloat(pair.value)*7).toLocaleString()}}
+          {{'人民币价值: ¥' + (parseFloat(pair.value)*7).toLocaleString()}}
         </div>
         <div class="card-text card-item" v-if="'value' in pair">
-          {{'美元总值: $' + parseFloat(pair.value).toLocaleString()}}
+          {{'美元价值: $' + parseFloat(pair.value).toLocaleString()}}
         </div>
         <div class="card-text card-item" v-if="'investment' in pair">
           {{'美元投入: $' + parseFloat(pair.investment).toLocaleString()}}
@@ -25,6 +25,90 @@
           {{'收益率: ' + pair.ratio}}
         </div>
       </el-card>
+      <el-row class="detail-row detail-first-row">
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'我的' + pair.token0_symbol}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col">
+          <span> {{pair.my_token0.toFixed(2)}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'我的' + pair.token1_symbol}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-last-col">
+          <span> {{pair.my_token1.toFixed(2)}} </span>
+        </el-col>
+      </el-row>
+      <el-row class="detail-row">
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'投入的' + pair.token0_symbol}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col">
+          <span> {{pair.invest_token0.toFixed(2)}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'投入的' + pair.token1_symbol}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-last-col">
+          <span> {{pair.invest_token1.toFixed(2)}} </span>
+        </el-col>
+      </el-row>
+      <el-row class="detail-row">
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'总收益率'}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col">
+          <span> {{pair.ratio}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'总收益'}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-last-col">
+          <span> {{pair.profit.toFixed(2)}} </span>
+        </el-col>
+      </el-row>
+      <el-row class="detail-row">
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'流动池收益率'}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col">
+          <span> {{pair.pool_ratio}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'流动池收益'}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-last-col">
+          <span> {{pair.pool_profit.toFixed(2)}} </span>
+        </el-col>
+      </el-row>
+      <el-row class="detail-row">
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'价格波动率'}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col">
+          <span> {{pair.price_ratio}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'价格波动收益'}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-last-col">
+          <span> {{pair.price_profit.toFixed(2)}} </span>
+        </el-col>
+      </el-row>
+      <el-row class="detail-row detail-last-row">
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'Uniswap收益率'}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col">
+          <span> {{pair.uniswap_ratio}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'Uniswap收益'}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-last-col">
+          <span> {{pair.uniswap_profit.toFixed(2)}} </span>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -54,6 +138,31 @@ export default {
 </script>
 
 <style>
+  .detail-row {
+    line-height: 20px;
+  }
+  .detail-first-row {
+    margin-top: 20px
+  }
+  .detail-last-row {
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color: gainsboro;
+  }
+  .detail-col {
+    border-style: solid none none solid;
+    border-width: 1px;
+    border-color: gainsboro;
+    font-size: 12px;
+  }
+  .detail-last-col {
+    border-style: solid solid none solid;
+  }
+  .detail-label {
+    background-color:lightcyan;
+    font-size: 10px;
+  }
+
   .card-text {
     font-size: 12px;
     text-align: left;
