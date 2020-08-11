@@ -16,7 +16,7 @@ export default {
   components: { AccountCard },
   data () {
     return {
-      title: 'Uniswap 流动池分析',
+      title: 'Uniswap流动池分析',
       accounts: []
     }
   },

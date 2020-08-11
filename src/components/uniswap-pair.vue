@@ -113,7 +113,7 @@
         <el-col :span="6" class="detail-col detail-label">
           <span> {{'流动池收益率'}} </span>
         </el-col>
-        <el-col :span="6" class="detail-col">
+        <el-col :span="6" class="detail-col" style="color:#ff007a">
           <span> {{pair.pool_ratio}} </span>
         </el-col>
         <el-col :span="6" class="detail-col detail-label">
