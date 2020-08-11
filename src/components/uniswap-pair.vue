@@ -13,19 +13,33 @@
           </span>
         </div>
         <div class="card-main-text" v-if="'value' in pair">
-          {{'人民币价值: ¥' + (parseFloat(pair.value)*7).toLocaleString()}}
+          {{'人民币价值: ¥' + (parseFloat(pair.value)*7).toFixed(2).toLocaleString()}}
         </div>
         <div class="card-text card-item" v-if="'value' in pair">
-          {{'美元价值: $' + parseFloat(pair.value).toLocaleString()}}
+          {{'美元价值: $' + parseFloat(pair.value).toFixed(2).toLocaleString()}}
         </div>
         <div class="card-text card-item" v-if="'investment' in pair">
-          {{'美元投入: $' + parseFloat(pair.investment).toLocaleString()}}
+          {{'美元投入: $' + parseFloat(pair.investment).toFixed(2).toLocaleString()}}
         </div>
         <div class="card-text card-item" v-if="'ratio' in pair">
           {{'收益率: ' + pair.ratio}}
         </div>
       </el-card>
       <el-row class="detail-row detail-first-row">
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'当前价值($)'}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col">
+          <span> {{pair.value.toFixed(2)}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'持币价值($)'}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-last-col">
+          <span> {{(pair.price_profit+pair.investment).toFixed(2)}} </span>
+        </el-col>
+      </el-row>
+      <el-row class="detail-row">
         <el-col :span="6" class="detail-col detail-label">
           <span> {{'我的' + pair.token0_symbol}} </span>
         </el-col>
@@ -41,6 +55,20 @@
       </el-row>
       <el-row class="detail-row">
         <el-col :span="6" class="detail-col detail-label">
+          <span> {{pair.token0_symbol + ':' + pair.token1_symbol}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col">
+          <span> {{(pair.my_token1 / pair.my_token0).toFixed(2)}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{pair.token1_symbol + ':' + pair.token0_symbol}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col">
+          <span> {{(pair.my_token0 / pair.my_token1).toFixed(2)}} </span>
+        </el-col>
+      </el-row>
+      <el-row class="detail-row">
+        <el-col :span="6" class="detail-col detail-label">
           <span> {{'投入的' + pair.token0_symbol}} </span>
         </el-col>
         <el-col :span="6" class="detail-col">
@@ -51,6 +79,20 @@
         </el-col>
         <el-col :span="6" class="detail-col detail-last-col">
           <span> {{pair.invest_token1.toFixed(2)}} </span>
+        </el-col>
+      </el-row>
+      <el-row class="detail-row">
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'投入' + pair.token0_symbol + ':' + pair.token1_symbol}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col">
+          <span> {{(pair.invest_token1 / pair.invest_token0).toFixed(2)}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-label">
+          <span> {{'投入' + pair.token1_symbol + ':' + pair.token0_symbol}} </span>
+        </el-col>
+        <el-col :span="6" class="detail-col detail-last-col">
+          <span> {{(pair.invest_token0 / pair.invest_token1).toFixed(2)}} </span>
         </el-col>
       </el-row>
       <el-row class="detail-row">
@@ -160,7 +202,7 @@ export default {
   }
   .detail-label {
     background-color:lightcyan;
-    font-size: 10px;
+    font-size: 8px;
   }
 
   .card-text {
