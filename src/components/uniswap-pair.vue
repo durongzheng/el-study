@@ -13,13 +13,13 @@
           </span>
         </div>
         <div class="card-main-text" v-if="'value' in pair">
-          {{'人民币价值: ¥' + (parseFloat(pair.value)*7).toFixed(2).toLocaleString()}}
+          {{'人民币价值: ¥' + (parseFloat(pair.value)*7).toLocaleString()}}
         </div>
         <div class="card-text card-item" v-if="'value' in pair">
-          {{'美元价值: $' + parseFloat(pair.value).toFixed(2).toLocaleString()}}
+          {{'美元价值: $' + parseFloat(pair.value).toLocaleString()}}
         </div>
         <div class="card-text card-item" v-if="'investment' in pair">
-          {{'美元投入: $' + parseFloat(pair.investment).toFixed(2).toLocaleString()}}
+          {{'美元投入: $' + parseFloat(pair.investment).toLocaleString()}}
         </div>
         <div class="card-text card-item" v-if="'ratio' in pair">
           {{'收益率: ' + pair.ratio}}
@@ -30,13 +30,13 @@
           <span> {{'当前价值($)'}} </span>
         </el-col>
         <el-col :span="6" class="detail-col">
-          <span> {{pair.value.toFixed(2)}} </span>
+          <span> {{pair.value.toLocaleString()}} </span>
         </el-col>
         <el-col :span="6" class="detail-col detail-label">
           <span> {{'持币价值($)'}} </span>
         </el-col>
         <el-col :span="6" class="detail-col detail-last-col">
-          <span> {{(pair.price_profit+pair.investment).toFixed(2)}} </span>
+          <span> {{(pair.price_profit+pair.investment).toLocaleString()}} </span>
         </el-col>
       </el-row>
       <el-row class="detail-row">
@@ -166,7 +166,7 @@
         <div class="card-text card-item" v-if="action.type===1"> {{'操作:  投入'}} </div>
         <div class="card-text card-item" v-else> {{'操作:  撤出'}} </div>
         <div class="card-text card-item" v-if="'value' in action">
-          {{'价值: ' + action.value.toFixed(2)}}
+          {{'价值: ' + action.value.toLocaleString()}}
         </div>
         <div class="card-text card-item" v-if="'date' in action">
           {{pair.token0_symbol + '数量: ' + action.token0.toFixed(2)}}
