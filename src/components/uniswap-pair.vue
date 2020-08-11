@@ -58,13 +58,13 @@
           <span> {{pair.token0_symbol + ':' + pair.token1_symbol}} </span>
         </el-col>
         <el-col :span="6" class="detail-col">
-          <span> {{(pair.my_token1 / pair.my_token0).toFixed(2)}} </span>
+          <span> {{(pair.my_token1 / pair.my_token0).toFixed(4)}} </span>
         </el-col>
         <el-col :span="6" class="detail-col detail-label">
           <span> {{pair.token1_symbol + ':' + pair.token0_symbol}} </span>
         </el-col>
-        <el-col :span="6" class="detail-col">
-          <span> {{(pair.my_token0 / pair.my_token1).toFixed(2)}} </span>
+        <el-col :span="6" class="detail-col detail-last-col">
+          <span> {{(pair.my_token0 / pair.my_token1).toFixed(4)}} </span>
         </el-col>
       </el-row>
       <el-row class="detail-row">
@@ -86,13 +86,13 @@
           <span> {{'投入' + pair.token0_symbol + ':' + pair.token1_symbol}} </span>
         </el-col>
         <el-col :span="6" class="detail-col">
-          <span> {{(pair.invest_token1 / pair.invest_token0).toFixed(2)}} </span>
+          <span> {{(pair.invest_token1 / pair.invest_token0).toFixed(4)}} </span>
         </el-col>
         <el-col :span="6" class="detail-col detail-label">
           <span> {{'投入' + pair.token1_symbol + ':' + pair.token0_symbol}} </span>
         </el-col>
         <el-col :span="6" class="detail-col detail-last-col">
-          <span> {{(pair.invest_token0 / pair.invest_token1).toFixed(2)}} </span>
+          <span> {{(pair.invest_token0 / pair.invest_token1).toFixed(4)}} </span>
         </el-col>
       </el-row>
       <el-row class="detail-row">
@@ -151,6 +151,30 @@
           <span> {{pair.uniswap_profit.toFixed(2)}} </span>
         </el-col>
       </el-row>
+      <el-row class="history-head">
+        <el-col :span="24">
+          <span> {{'最后一次操作日期:  ' + pair.lastDate}} </span>
+        </el-col>
+        <el-col :span="24" style="font-size:10px; font-weight:normal">
+          <span> {{'(距今:  ' + ((Date.now() - Date.parse(pair.lastDate)) / ((1000 * 60 * 60 * 24))).toFixed(0) + '天)' }} </span>
+        </el-col>
+      </el-row>
+      <el-card class="card-box" v-for="action in pair.actions" :key="action.date">
+        <div class="card-text card-item" v-if="'date' in action">
+          {{'日期: ' + action.date}}
+        </div>
+        <div class="card-text card-item" v-if="action.type===1"> {{'操作:  投入'}} </div>
+        <div class="card-text card-item" v-else> {{'操作:  撤出'}} </div>
+        <div class="card-text card-item" v-if="'value' in action">
+          {{'价值: ' + action.value.toFixed(2)}}
+        </div>
+        <div class="card-text card-item" v-if="'date' in action">
+          {{pair.token0_symbol + '数量: ' + action.token0.toFixed(2)}}
+        </div>
+        <div class="card-text card-item" v-if="'date' in action">
+          {{pair.token1_symbol + '数量: ' + action.token1.toFixed(2)}}
+        </div>
+      </el-card>
     </div>
   </div>
 </template>
@@ -180,6 +204,15 @@ export default {
 </script>
 
 <style>
+  .history-head {
+    margin-top: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gainsboro;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+  }
   .detail-row {
     line-height: 20px;
   }
@@ -201,8 +234,9 @@ export default {
     border-style: solid solid none solid;
   }
   .detail-label {
-    background-color:lightcyan;
+    background-color: #FFE5F1;
     font-size: 8px;
+    font-weight: bold;
   }
 
   .card-text {
